@@ -1,0 +1,33 @@
+.sidebar{
+  width: 20%;
+  height: 90vh;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+}
+.sidebar__top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.sidebar__form{
+  width: 40%;
+
+}
+.sidebar__search-input{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+.sidebar__add-button{
+  color: black;
+  background-color: orange;
+}
