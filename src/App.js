@@ -7,11 +7,15 @@ import Main from './components/Main/Main';
 function App() {
 
   const [users, setUsers] = useState([]);
+  const [todos, setTodos] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    api.getAllUsers()
-    .then(res => {
-      setUsers(users => (res.data));
+    Promise.all([api.getAllUsers(), api.getAllTodos(), api.getAlltPosts()])
+    .then(values => {
+      setUsers(values[0].data);
+      setTodos(values[1].data);
+      setPosts(values[2].data);
     })
     .catch(console.log);
 
@@ -19,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <Sidebar users={users}/>
+      <Sidebar users={users} todos={todos} posts={posts}/>
       <Main/>
     </div>
   );

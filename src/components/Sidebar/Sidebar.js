@@ -1,12 +1,13 @@
+import User from "../User/User";
 import "./Sidebar.css";
 import { useState, useEffect } from "react";
 
-const Sidebar = ({users}) => {
-  const [displayedUsers, setDisplayedUsers] = useState(users);
+const Sidebar = ({users, todos, posts}) => {
+  const [displayedUsers, setDisplayedUsers] = useState([]);
 
   useEffect(() => {
-    setDisplayedUsers(users)
-  }, [])
+    setDisplayedUsers(() => (users))
+  }, [users])
 
   const handleClick = () => {
     console.log("Add button clicked")
@@ -30,17 +31,13 @@ const Sidebar = ({users}) => {
 
           </div>
           <div className="sidebar__users-list">
-          <ul>
-            {
-              displayedUsers.map(user => (
-                <li key={user.id}>
-                  Name: {user.name}<br/>
-                  Email: {user.email}
-                </li>
-              ))
-            }
+          <ul className="sidebar__list">
+            {displayedUsers.map(user => (
+              <li key={user.id}>
+              <User userInfo={user} todos={todos} posts={posts}/>
+              </li>
+            ))}
           </ul>
-
           </div>
 
         </div>

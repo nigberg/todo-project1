@@ -1,0 +1,9 @@
+.user{
+  width: 98%;
+  padding: 10px;
+  border: 1px solid red;
+
+}
+.user_type_tasks-completed{
+  border-color: green;
+}
